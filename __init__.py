@@ -7,7 +7,7 @@ import logging
 import copy
 
 from MonitorControl import Port, Beam, ComplexSignal, ObservatoryError
-from FrontEnds import FrontEnd
+from MonitorControl.FrontEnds import FrontEnd
 
 class K_4ch(FrontEnd):
   """
