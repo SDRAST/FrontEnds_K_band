@@ -13,7 +13,7 @@ class K_4ch(FrontEnd):
   """
   The 4-channel downconverter with four inputs for two pols and two feeds.
 
-  The class variable lists 'feeds' and 'pols' will define output port labels:
+  The class variable lists 'feeds' and 'pols' will define output port labels::
     F1P1, F1P2, F2P1, F2P2.
   The polarization type is definitely linear but the orientations are not
   yet known.
@@ -23,9 +23,8 @@ class K_4ch(FrontEnd):
 
   def __init__(self, name, inputs=None, output_names=None, active=True):
     """
-    @param tel : source of the signal
-    @type  tel : Telescope instance
-
+    Create a K_4ch instance
+    
     @param name : unique identifier for this port
     @type  name : str
 
