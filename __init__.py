@@ -21,7 +21,7 @@ class K_4ch(FrontEnd):
   yet known.
   """
   feeds = ["F1","F2"] # default names for the feeds
-  pols = ["X", "Y"]
+  pols = ["E", "H"]
 
   def __init__(self, name, inputs=None, output_names=None, active=True):
     """
@@ -41,7 +41,7 @@ class K_4ch(FrontEnd):
     self.name = name
     mylogger = logging.getLogger(module_logger.name+".K_4ch")
     mylogger.debug(" initializing %s", self)
-    mylogger.info(" %s input channels: %s", self, str(inputs))
+    mylogger.debug(" %s input channels: %s", self, str(inputs))
     mylogger.debug(" output names: %s", output_names)
     FrontEnd.__init__(self, name, inputs=inputs, output_names=output_names)
     self.logger = mylogger
@@ -61,7 +61,7 @@ class K_4ch(FrontEnd):
                                         inputs={feed: self.inputs[feed]},
                                         output_names=output_names[index],
                                         signal=beam_signal)
-    self.logger.info("%s output channels: %s", self, str(self.outputs))
+    self.logger.debug("%s output channels: %s", self, str(self.outputs))
     self.set_ND_off()
 
   def _update_self(self):
