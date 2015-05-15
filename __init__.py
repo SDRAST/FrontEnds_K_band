@@ -2,6 +2,42 @@
 K_4ch - module for K_4ch front end class
 
 This provides a superclass with code common to both WBDC versions
+
+sub-package implements control and monitoring of the
+K-band front end using a LabJack
+
+Signals
+=======
+These are the signals monitored or controlled by the LabJack::
+
+  FIO  IO   type   description
+  ---  --   ----   -----------
+    0   0    DO    feed 1 load control (pulsed high-low-high)
+    1   1    DO    feed 2 load control (pulsed high-low-high)
+    2   2    DO    amp 1 bias control (pulsed high-low-high)
+    3   3    DO    amp 2 bias control (pulsed high-low-high)
+    4   4    DO    phase-cal (high = True = on)
+    5   5    DO    phase-cal rail (high = True = 4 MHz, low = 1 MHz)
+    6   6    DI    controls LabJack TickDAC
+    7   7    DI    controls LabJack TickDAC
+
+  EIO  IO   type   description
+  ---  --   ----   -----------
+    0   8    DI    amp 1 bias on (high = True, low = False)
+    1   9    DI    amp 2 bias on
+    2  10    AIN   -12 V
+    3  11    AIN   +12 V
+    4  12    AIN    +5 V
+    5  13    AIN    +8 V
+    6  14    AIN   Lambda supply
+    7  15    DO    ND control
+
+  CIO  IO   type   description
+  ---  --   ----   -----------
+    0  16    DI    feed 1 in load
+    1  17    DI    feed 2 in load
+    2  18    DI    feed 1 on sky
+    3  19    DI    feed 2 on sky
 """
 import logging
 import copy
