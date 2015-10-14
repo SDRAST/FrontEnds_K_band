@@ -123,12 +123,8 @@ class K_4ch(FrontEnd):
         ID = output_names[index]
         self.outputs[ID] = Port(self, ID,
                                 source=inputs[name],
-                                signal=ComplexSignal(signal, name=pol, pol=pol))
-        #self.outputs[ID].signal.FITS['OBSFREQ'] = parent['frequency']*1e9 # Hz
-        #self.outputs[ID].signal.FITS['BANDWID'] = parent['bandwidth']*1e9 # Hz
-        #self.outputs[ID].signal['beam'] = parent.name+name
-        #self.outputs[ID].signal['frequency'] = parent['frequency']*1e9 # Hz
-        #self.outputs[ID].signal['bandwidth'] = parent['bandwidth']*1e9 # Hz
+                                signal=ComplexSignal(signal, name=pol,
+                                pol=pol))
         parent.outputs[ID] = self.outputs[ID]
       self.logger.debug(" %s outputs: %s", self, str(self.outputs))
       self.retract_load()
