@@ -41,6 +41,7 @@ These are the signals monitored or controlled by the LabJack::
 """
 import copy
 import logging
+import math
 import Pyro
 import time
 
@@ -78,27 +79,30 @@ class K_4ch(FrontEnd):
   This version uses the legacy FE_Pyro_server, which needs to be replaced with
   something more capable.
   """  
-  def __init__(self, name, inputs=None, output_names=None, active=True,
-               hardware = False):
+  def __init__(self, name, inputs=None, output_names=[['F1P1','F1P2'],
+                                                      ['F2P1','F2P2']],
+               active=True, hardware = False):
     """
     Create a K_4ch instance
     
-    @param name : unique identifier for this portIt was connected to the wrong port, try it now
+    @param name : unique identifier for this port
     @type  name : str
 
     @param active : True is the FrontEnd instance is functional
     @type  active : bool
     """
+    self.name = name
+    mylogger = logging.getLogger(module_logger.name+".K_4ch")
+    mylogger.debug(" initializing %s", self)
+    self.logger = mylogger # needed for defining inputs
     if inputs == None:
       # This is for Receiver stand-alone testing
       inputs = {}
       for feed in feeds:
         inputs[feed] = Port(self, feed, signal=Beam(feed))
-    self.name = name
-    mylogger = logging.getLogger(module_logger.name+".K_4ch")
-    mylogger.debug(" initializing %s", self)
     mylogger.debug(" %s input channels: %s", self, str(inputs))
     mylogger.debug(" output names: %s", output_names)
+    # the next redefines self.logger
     FrontEnd.__init__(self, name, inputs=inputs, output_names=output_names)
     if hardware:
       self.hardware = get_device_server("FE_server-krx43", pyro_ns="crux")
@@ -117,6 +121,7 @@ class K_4ch(FrontEnd):
           timeout = 0.        
     else:
       self.hardware = hardware # that is, False
+    # restore logger name
     self.logger = mylogger
     self.channel = {}
     # These are receiver properties as well as signal properties
@@ -133,6 +138,7 @@ class K_4ch(FrontEnd):
                                         inputs={feed: self.inputs[feed]},
                                         output_names=output_names[index],
                                         signal=beam_signal)
+      self.channel[feed].retract_load()
       for key in self.channel[feed].outputs.keys():
         pol = key[-2:]
         self.channel[feed].outputs[key].signal['pol'] = plane[pol]
@@ -149,6 +155,7 @@ class K_4ch(FrontEnd):
   
   def feed_states(self):
     """
+    Report the waveguide load state
     """
     if self.hardware:
       response = self.hardware.set_WBDC(12)
@@ -160,7 +167,7 @@ class K_4ch(FrontEnd):
           self.channel[name].load_in = False
         else:
           self.channel[name].load_in = True
-    return self.channel["KF1"].load_in, self.channel["KF2"].load_in
+    return self.channel["F1"].load_in, self.channel["F2"].load_in
       
   def set_ND_on(self):
     if self.hardware:
@@ -214,6 +221,11 @@ class K_4ch(FrontEnd):
     """
     """
     return self.hardware.read_temp()
+  
+  def Tsys_vacuum(self, beam=1, pol="R", mode=None, elevation=90):
+    """
+    """
+    return 36/math.sin(math.pi*elevation/180) # K
 
   class Channel(FrontEnd.Channel):
     """
