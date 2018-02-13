@@ -63,7 +63,7 @@ class K_4ch(FrontEnd):
     F1P1, F1P2, F2P1, F2P2.
   The polarization type is definitely linear but the orientations are not
   yet known.
-  
+
   Attributes
   ==========
   Pulic::
@@ -73,18 +73,18 @@ class K_4ch(FrontEnd):
     logger   - logging.Logger object
     name     - text identifier
     outputs  - Port objects
-  
+
   Notes
   =====
   This version uses the legacy FE_Pyro_server, which needs to be replaced with
   something more capable.
-  """  
+  """
   def __init__(self, name, inputs=None, output_names=[['F1P1','F1P2'],
                                                       ['F2P1','F2P2']],
                active=True, hardware = False):
     """
     Create a K_4ch instance
-    
+
     @param name : unique identifier for this port
     @type  name : str
 
@@ -118,7 +118,7 @@ class K_4ch(FrontEnd):
             time.sleep(0.5)
         else:
           # command succeeded
-          timeout = 0.        
+          timeout = 0.
     else:
       self.hardware = hardware # that is, False
     # restore logger name
@@ -152,7 +152,7 @@ class K_4ch(FrontEnd):
     """
     self.feed_states()
     self.get_ND_state()
-  
+
   def feed_states(self):
     """
     Report the waveguide load state
@@ -167,8 +167,8 @@ class K_4ch(FrontEnd):
           self.channel[name].load_in = False
         else:
           self.channel[name].load_in = True
-    return self.channel["F1"].load_in, self.channel["F2"].load_in
-      
+      return self.channel["F1"].load_in, self.channel["F2"].load_in
+
   def set_ND_on(self):
     if self.hardware:
       response = self.hardware.set_WBDC(23)
@@ -191,12 +191,12 @@ class K_4ch(FrontEnd):
     if self.hardware:
       self.ND = self.hardware.set_WBDC(22)
     return self.ND
-  
+
   def set_ND_temp(self, value):
     """
     """
     return "hardware not yet available"
-      
+
   def set_PCG_on(self):
     self.PCG = True
     return "hardware not yet available"
@@ -216,12 +216,12 @@ class K_4ch(FrontEnd):
     """
     """
     return self.hardware.read_pms()
-    
+
   def read_temps(self):
     """
     """
     return self.hardware.read_temp()
-  
+
   def Tsys_vacuum(self, beam=1, pol="R", mode=None, elevation=90):
     """
     """
@@ -230,7 +230,7 @@ class K_4ch(FrontEnd):
   class Channel(FrontEnd.Channel):
     """
     Electronics associated with a feed
-    
+
     Attributes
     ==========
     Public::
@@ -292,11 +292,11 @@ class K_4ch(FrontEnd):
         response = "off"
       self.preamp_on = False
       return response
-      
+
     class PowerMeter:
       """
       Client to power meter on remote server
-      
+
       Each front end channel has two power meters, for P1 and P2 respectively
       """
       def __init__(self, parent, pol):
@@ -313,7 +313,7 @@ class K_4ch(FrontEnd):
         else:
           raise RuntimeError, "invalid polarization code"
         self.number = 1 + self.parent.number*2 + self.pol
-      
+
       def set_mode(self, mode):
         """
         """
@@ -322,5 +322,3 @@ class K_4ch(FrontEnd):
         elif mode.lower() == "dbm":
           response = self.hardware.set_WBDC(400+self.number)
         return response
-        
-          
