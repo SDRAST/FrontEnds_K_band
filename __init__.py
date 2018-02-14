@@ -39,11 +39,13 @@ These are the signals monitored or controlled by the LabJack::
     2  18    DI    feed 1 on sky
     3  19    DI    feed 2 on sky
 """
+import datetime
 import copy
 import logging
 import math
 import Pyro
 import time
+import random
 
 from MonitorControl import Port, Beam, ComplexSignal, ObservatoryError
 from MonitorControl.FrontEnds import FrontEnd
@@ -161,10 +163,12 @@ class K_4ch(FrontEnd):
     """
     if self.hardware:
       response = self.hardware.set_WBDC(12)
+      self.logger.debug("feed_states: response from set_WBDC(12): {}".format(response))
+      self.logger.debug("feed_states: channel names: {}".format(list(self.channel.keys())))
       lines = response.split('\n')
       for line in lines[1:2]:
         parts = line.split()
-        name = "KF"+parts[1]
+        name = "F"+parts[1]
         if parts[3] == "sky":
           self.channel[name].load_in = False
         else:
@@ -173,7 +177,7 @@ class K_4ch(FrontEnd):
     else:
       return True, True
 
-  @auto_test(returns=(True,))
+  @auto_test(returns=str)
   def set_ND_on(self):
     if self.hardware:
       response = self.hardware.set_WBDC(23)
@@ -182,7 +186,7 @@ class K_4ch(FrontEnd):
     self.ND = True
     return response
 
-  @auto_test(returns=(False,))
+  @auto_test(returns=str)
   def set_ND_off(self):
     if self.hardware:
       response = self.hardware.set_WBDC(24)
@@ -199,7 +203,7 @@ class K_4ch(FrontEnd):
       self.ND = self.hardware.set_WBDC(22)
     return self.ND
 
-  @auto_test(returns=str)
+  @auto_test(returns=str, args=(None,))
   def set_ND_temp(self, value):
     """
     """
@@ -215,7 +219,7 @@ class K_4ch(FrontEnd):
     self.PCG = False
     return "hardware not yet available"
 
-  @auto_test(returns=str)
+  @auto_test(returns=str,args=(1,))
   def set_PCG_rail(self,spacing):
     if spacing == 1 or spacing == 4:
       self.PCG_rail = spacing
@@ -225,15 +229,20 @@ class K_4ch(FrontEnd):
 
   @auto_test(returns=list)
   def read_PMs(self):
-    """
-    """
-    return self.hardware.read_pms()
+    if self.hardware:
+      return self.hardware.read_pms()
+    else:
+      return [(i+1, str(datetime.datetime.utcnow()), random.random()) for i in range(4)]
 
-  @auto_test(returns=list)
+  @auto_test(returns=dict)
   def read_temps(self):
-    """
-    """
-    return self.hardware.read_temp()
+    if self.hardware:
+      return self.hardware.read_temp()
+    else:
+      return {"load1": 300*random.random(),
+              "12K":15*random.random(),
+              "load2":300*random.random(),
+              "70K":80*random.random()}
 
   @auto_test(returns=float)
   def Tsys_vacuum(self, beam=1, pol="R", mode=None, elevation=90):
@@ -307,7 +316,7 @@ class K_4ch(FrontEnd):
       self.preamp_on = False
       return response
 
-    class PowerMeter:
+    class PowerMeter(object):
       """
       Client to power meter on remote server
 
