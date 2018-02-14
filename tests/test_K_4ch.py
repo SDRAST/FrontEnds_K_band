@@ -7,7 +7,10 @@ from support.logs import setup_logging
 from MonitorControl.FrontEnds.Kband import K_4ch
 
 auto_tester = AutoTestSuite(K_4ch,args=("K",))
-suite, TestK_4ch = auto_tester.create_test_suite()
+suite, TestK_4ch_factory = auto_tester.create_test_suite(factory=True)
+
+class TestK_4ch(TestK_4ch_factory()):
+    pass
 
 class TestK_4ch_with_hardware(unittest.TestCase):
 
