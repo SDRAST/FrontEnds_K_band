@@ -48,6 +48,7 @@ import time
 from MonitorControl import Port, Beam, ComplexSignal, ObservatoryError
 from MonitorControl.FrontEnds import FrontEnd
 from support.pyro import get_device_server
+from support.test import auto_test
 
 module_logger = logging.getLogger(__name__)
 
@@ -110,10 +111,10 @@ class K_4ch(FrontEnd):
       while timeout:
         try:
           self.set_ND_off()
-        except Pyro.errors.ProtocolError, details:
+        except Pyro.errors.ProtocolError as err:
           mylogger.info("__init__: %s (%f sec left)",
-                       details,timeout)
-          if str(details) == "connection failed":
+                       err,timeout)
+          if str(err) == "connection failed":
             timeout -= 0.5
             time.sleep(0.5)
         else:
@@ -153,6 +154,7 @@ class K_4ch(FrontEnd):
     self.feed_states()
     self.get_ND_state()
 
+  @auto_test(returns=(True, True))
   def feed_states(self):
     """
     Report the waveguide load state
@@ -168,7 +170,10 @@ class K_4ch(FrontEnd):
         else:
           self.channel[name].load_in = True
       return self.channel["F1"].load_in, self.channel["F2"].load_in
+    else:
+      return True, True
 
+  @auto_test(returns=(True,))
   def set_ND_on(self):
     if self.hardware:
       response = self.hardware.set_WBDC(23)
@@ -177,6 +182,7 @@ class K_4ch(FrontEnd):
     self.ND = True
     return response
 
+  @auto_test(returns=(False,))
   def set_ND_off(self):
     if self.hardware:
       response = self.hardware.set_WBDC(24)
@@ -185,6 +191,7 @@ class K_4ch(FrontEnd):
     self.ND = False
     return response
 
+  @auto_test(returns=bool)
   def get_ND_state(self):
     """
     """
@@ -192,19 +199,23 @@ class K_4ch(FrontEnd):
       self.ND = self.hardware.set_WBDC(22)
     return self.ND
 
+  @auto_test(returns=str)
   def set_ND_temp(self, value):
     """
     """
     return "hardware not yet available"
 
+  @auto_test(returns=str)
   def set_PCG_on(self):
     self.PCG = True
     return "hardware not yet available"
 
+  @auto_test(returns=str)
   def set_PCG_off(self):
     self.PCG = False
     return "hardware not yet available"
 
+  @auto_test(returns=str)
   def set_PCG_rail(self,spacing):
     if spacing == 1 or spacing == 4:
       self.PCG_rail = spacing
@@ -212,16 +223,19 @@ class K_4ch(FrontEnd):
       raise ObservatoryError(spacing,"is not a valid PCG tone interval")
     return "hardware not available"
 
+  @auto_test(returns=list)
   def read_PMs(self):
     """
     """
     return self.hardware.read_pms()
 
+  @auto_test(returns=list)
   def read_temps(self):
     """
     """
     return self.hardware.read_temp()
 
+  @auto_test(returns=float)
   def Tsys_vacuum(self, beam=1, pol="R", mode=None, elevation=90):
     """
     """
@@ -311,7 +325,7 @@ class K_4ch(FrontEnd):
           self.name = "F"+str(self.parent.number+1)+"P2"
           self.pol = 1
         else:
-          raise RuntimeError, "invalid polarization code"
+          raise RuntimeError("invalid polarization code")
         self.number = 1 + self.parent.number*2 + self.pol
 
       def set_mode(self, mode):
