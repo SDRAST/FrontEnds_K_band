@@ -1,0 +1,988 @@
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:16:33   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:35:44   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:35:58   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:36:59   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:37:16   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:38:16   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:39:09   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:40:36   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:41:53   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:43:01   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:43:09   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:44:39   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:45:10   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:47:44   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:47:58   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:48:16   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:50:46   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:50:54   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
+
+------------------------------------------------------------ NEW SESSION
+2018-02-14 02:51:15   Pyro Initializing, version 3.16
+This is initClient.
+Configuration settings are as follows:
+PYROSSL_CA_CERT = ca.pem
+PYROSSL_CERT = host.pem
+PYROSSL_CERTDIR = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/certs
+PYROSSL_KEY = None
+PYROSSL_POSTCONNCHECK = 1
+PYRO_BC_RETRIES = 1
+PYRO_BC_TIMEOUT = 0.75
+PYRO_BROKEN_MSGWAITALL = 0
+PYRO_CHECKSUM = 0
+PYRO_COMPRESSION = 0
+PYRO_CONFIG_FILE = 
+PYRO_DETAILED_TRACEBACK = 0
+PYRO_DNS_URI = 0
+PYRO_ES_BLOCKQUEUE = 1
+PYRO_ES_QUEUESIZE = 1000
+PYRO_GNOSIS_PARANOIA = 0
+PYRO_HOST = 
+PYRO_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_log
+PYRO_MAXCONNECTIONS = 200
+PYRO_MOBILE_CODE = 0
+PYRO_MULTITHREADED = 1
+PYRO_NS2_BC_ADDR = None
+PYRO_NS2_BC_PORT = 9091
+PYRO_NS2_HOSTNAME = None
+PYRO_NS2_PORT = 9091
+PYRO_NS_BC_ADDR = None
+PYRO_NS_BC_PORT = 9090
+PYRO_NS_DEFAULTGROUP = :Default
+PYRO_NS_HOSTNAME = None
+PYRO_NS_PORT = 9090
+PYRO_NS_URIFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_NS_URI
+PYRO_ONEWAY_THREADED = 1
+PYRO_PICKLE_FORMAT = 2
+PYRO_PORT = 7766
+PYRO_PORT_RANGE = 100
+PYRO_PUBLISHHOST = None
+PYRO_SOCK_KEEPALIVE = 1
+PYRO_STDLOGGING = True
+PYRO_STDLOGGING_CFGFILE = logging.cfg
+PYRO_STORAGE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband
+PYRO_TCP_LISTEN_BACKLOG = 200
+PYRO_TRACELEVEL = 2
+PYRO_USER_LOGFILE = /home/ops/DSN-Sci-packages/MonitorControl/FrontEnds/Kband/Pyro_userlog
+PYRO_USER_TRACELEVEL = 0
+PYRO_XML_PICKLE = None
+Init done.
+----------------------------------------------------------------------
