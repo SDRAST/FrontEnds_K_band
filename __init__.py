@@ -47,7 +47,6 @@ import time
 
 from MonitorControl import Port, Beam, ComplexSignal, ObservatoryError
 from MonitorControl.FrontEnds import FrontEnd
-from support.pyro import get_device_server
 
 module_logger = logging.getLogger(__name__)
 
@@ -81,15 +80,12 @@ class K_4ch(FrontEnd):
   """  
   def __init__(self, name, inputs=None, output_names=[['F1P1','F1P2'],
                                                       ['F2P1','F2P2']],
-               active=True, hardware = False):
+               hardware = False):
     """
     Create a K_4ch instance
     
     @param name : unique identifier for this port
     @type  name : str
-
-    @param active : True is the FrontEnd instance is functional
-    @type  active : bool
     """
     self.name = name
     mylogger = logging.getLogger(module_logger.name+".K_4ch")
@@ -105,6 +101,7 @@ class K_4ch(FrontEnd):
     # the next redefines self.logger
     FrontEnd.__init__(self, name, inputs=inputs, output_names=output_names)
     if hardware:
+      from support.pyro import get_device_server
       self.hardware = get_device_server("FE_server-krx43", pyro_ns="crux")
       timeout = 10
       while timeout:

@@ -10,11 +10,13 @@ import Pyro.naming
 from support.pyro import launch_server
 from support.logs import init_logging
 
+# the Observatory package is obsolete
 from Observatory import WBDC
 from Observatory.FrontEnd import FE, sky, load, on, off
 #from Observatory.WBDC import LJTickDAC
 from Observatory.WBDC import Attenuator
 from Observatory.minical import get_minical, process_minical
+
 from Electronics.Interfaces.LabJack import searchForDevices
 from Electronics.Interfaces.LabJack import connect_to_U3s
 from Electronics.Interfaces.LabJack import get_LJ_ID
@@ -24,7 +26,7 @@ from Electronics.Interfaces.LabJack import report_IO_config, report_U3_config
 from Electronics.Interfaces.LabJack import get_IO_states
 from Electronics.Instruments.GPIB_devices import PM
 from Electronics.Instruments.GPIB_devices import SG
-#from Observatory.WBDC import set_band
+from local_dirs import log_dir
 from time import sleep, ctime, time
 from datetime import datetime
 try:
@@ -375,7 +377,7 @@ def main():
    mylogger = init_logging(mylogger,
                            loglevel=logging.INFO, 
                            consolevel=logging.DEBUG,
-                           logname="/usr/local/logs/"+__name__+".log")
+                           logname=log_dir+__name__+".log")
    
    locator = Pyro.naming.NameServerLocator()
    try:
