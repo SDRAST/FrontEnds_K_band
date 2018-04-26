@@ -39,15 +39,18 @@ These are the signals monitored or controlled by the LabJack::
     2  18    DI    feed 1 on sky
     3  19    DI    feed 2 on sky
 """
+import datetime
 import copy
 import logging
 import math
 import Pyro
 import time
+import random
 
 from MonitorControl import Port, Beam, ComplexSignal, ObservatoryError
 from MonitorControl.FrontEnds import FrontEnd
 from support.pyro import get_device_server
+from support.test import auto_test
 
 module_logger = logging.getLogger(__name__)
 
@@ -63,7 +66,7 @@ class K_4ch(FrontEnd):
     F1P1, F1P2, F2P1, F2P2.
   The polarization type is definitely linear but the orientations are not
   yet known.
-  
+
   Attributes
   ==========
   Pulic::
@@ -73,23 +76,20 @@ class K_4ch(FrontEnd):
     logger   - logging.Logger object
     name     - text identifier
     outputs  - Port objects
-  
+
   Notes
   =====
   This version uses the legacy FE_Pyro_server, which needs to be replaced with
   something more capable.
-  """  
+  """
   def __init__(self, name, inputs=None, output_names=[['F1P1','F1P2'],
                                                       ['F2P1','F2P2']],
-               active=True, hardware = False):
+               hardware = False):
     """
     Create a K_4ch instance
-    
+
     @param name : unique identifier for this port
     @type  name : str
-
-    @param active : True is the FrontEnd instance is functional
-    @type  active : bool
     """
     self.name = name
     mylogger = logging.getLogger(module_logger.name+".K_4ch")
@@ -105,20 +105,21 @@ class K_4ch(FrontEnd):
     # the next redefines self.logger
     FrontEnd.__init__(self, name, inputs=inputs, output_names=output_names)
     if hardware:
+      from support.pyro import get_device_server
       self.hardware = get_device_server("FE_server-krx43", pyro_ns="crux")
       timeout = 10
       while timeout:
         try:
           self.set_ND_off()
-        except Pyro.errors.ProtocolError, details:
+        except Pyro.errors.ProtocolError as err:
           mylogger.info("__init__: %s (%f sec left)",
-                       details,timeout)
-          if str(details) == "connection failed":
+                       err,timeout)
+          if str(err) == "connection failed":
             timeout -= 0.5
             time.sleep(0.5)
         else:
           # command succeeded
-          timeout = 0.        
+          timeout = 0.
     else:
       self.hardware = hardware # that is, False
     # restore logger name
@@ -152,23 +153,29 @@ class K_4ch(FrontEnd):
     """
     self.feed_states()
     self.get_ND_state()
-  
+
+  @auto_test(returns=(True, True))
   def feed_states(self):
     """
     Report the waveguide load state
     """
     if self.hardware:
       response = self.hardware.set_WBDC(12)
+      self.logger.debug("feed_states: response from set_WBDC(12): {}".format(response))
+      self.logger.debug("feed_states: channel names: {}".format(list(self.channel.keys())))
       lines = response.split('\n')
       for line in lines[1:2]:
         parts = line.split()
-        name = "KF"+parts[1]
+        name = "F"+parts[1]
         if parts[3] == "sky":
           self.channel[name].load_in = False
         else:
           self.channel[name].load_in = True
-    return self.channel["F1"].load_in, self.channel["F2"].load_in
-      
+      return self.channel["F1"].load_in, self.channel["F2"].load_in
+    else:
+      return True, True
+
+  @auto_test(returns=str)
   def set_ND_on(self):
     if self.hardware:
       response = self.hardware.set_WBDC(23)
@@ -177,6 +184,7 @@ class K_4ch(FrontEnd):
     self.ND = True
     return response
 
+  @auto_test(returns=str)
   def set_ND_off(self):
     if self.hardware:
       response = self.hardware.set_WBDC(24)
@@ -185,26 +193,31 @@ class K_4ch(FrontEnd):
     self.ND = False
     return response
 
+  @auto_test(returns=bool)
   def get_ND_state(self):
     """
     """
     if self.hardware:
       self.ND = self.hardware.set_WBDC(22)
     return self.ND
-  
+
+  @auto_test(returns=str, args=(None,))
   def set_ND_temp(self, value):
     """
     """
     return "hardware not yet available"
-      
+
+  @auto_test(returns=str)
   def set_PCG_on(self):
     self.PCG = True
     return "hardware not yet available"
 
+  @auto_test(returns=str)
   def set_PCG_off(self):
     self.PCG = False
     return "hardware not yet available"
 
+  @auto_test(returns=str,args=(1,))
   def set_PCG_rail(self,spacing):
     if spacing == 1 or spacing == 4:
       self.PCG_rail = spacing
@@ -212,16 +225,24 @@ class K_4ch(FrontEnd):
       raise ObservatoryError(spacing,"is not a valid PCG tone interval")
     return "hardware not available"
 
+  @auto_test(returns=list)
   def read_PMs(self):
-    """
-    """
-    return self.hardware.read_pms()
-    
+    if self.hardware:
+      return self.hardware.read_pms()
+    else:
+      return [(i+1, str(datetime.datetime.utcnow()), random.random()) for i in range(4)]
+
+  @auto_test(returns=dict)
   def read_temps(self):
-    """
-    """
-    return self.hardware.read_temp()
-  
+    if self.hardware:
+      return self.hardware.read_temp()
+    else:
+      return {"load1": 300*random.random(),
+              "12K":15*random.random(),
+              "load2":300*random.random(),
+              "70K":80*random.random()}
+
+  @auto_test(returns=float)
   def Tsys_vacuum(self, beam=1, pol="R", mode=None, elevation=90):
     """
     """
@@ -230,7 +251,7 @@ class K_4ch(FrontEnd):
   class Channel(FrontEnd.Channel):
     """
     Electronics associated with a feed
-    
+
     Attributes
     ==========
     Public::
@@ -292,11 +313,11 @@ class K_4ch(FrontEnd):
         response = "off"
       self.preamp_on = False
       return response
-      
-    class PowerMeter:
+
+    class PowerMeter(object):
       """
       Client to power meter on remote server
-      
+
       Each front end channel has two power meters, for P1 and P2 respectively
       """
       def __init__(self, parent, pol):
@@ -311,9 +332,9 @@ class K_4ch(FrontEnd):
           self.name = "F"+str(self.parent.number+1)+"P2"
           self.pol = 1
         else:
-          raise RuntimeError, "invalid polarization code"
+          raise RuntimeError("invalid polarization code")
         self.number = 1 + self.parent.number*2 + self.pol
-      
+
       def set_mode(self, mode):
         """
         """
@@ -322,5 +343,3 @@ class K_4ch(FrontEnd):
         elif mode.lower() == "dbm":
           response = self.hardware.set_WBDC(400+self.number)
         return response
-        
-          

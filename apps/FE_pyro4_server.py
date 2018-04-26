@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from pyro_support import Pyro4Server, config
-
+# the Observatory package is obsolete
 from Observatory import FrontEnd
 from Observatory.WBDC import Attenuator
+
+from local_dirs import log_dir
+from pyro_support import Pyro4Server, config
 import Electronics.Interfaces.LabJack as LabJack
 
 module_logger = logging.getLogger(__name__)
@@ -216,9 +218,9 @@ if __name__ == "__main__":
     else:
         loglevel = logging.INFO
 
-    logpath = "/usr/local/logs"
+    #logpath = "/usr/local/logs"
     timestamp = datetime.datetime.utcnow().strftime("%j-%Hh%Mm")
-    logfile = os.path.join(logpath,"{}_{}.log".format(name, timestamp))
+    logfile = os.path.join(log_dir,"{}_{}.log".format(name, timestamp))
 
     setup_logging(logfile, loglevel)
     logger = logging.getLogger(name)
