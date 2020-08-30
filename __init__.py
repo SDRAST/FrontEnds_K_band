@@ -43,13 +43,12 @@ import datetime
 import copy
 import logging
 import math
-import Pyro
+import Pyro5
 import time
 import random
 
-from MonitorControl import Port, Beam, ComplexSignal, ObservatoryError
+from MonitorControl import Port, Beam, ComplexSignal, MonitorControlError
 from MonitorControl.FrontEnds import FrontEnd
-from support.pyro import get_device_server
 from support.test import auto_test
 
 module_logger = logging.getLogger(__name__)
@@ -90,47 +89,53 @@ class K_4ch(FrontEnd):
 
     @param name : unique identifier for this port
     @type  name : str
+    
+    @param inputs : signal entry points
+    @type  inputs : Port instances
+    
+    @param output_names : names to be assigned to the output ports
+    @type  output_names : list of str
+    
+    @param hardware : connected to server
+    @type  hardware : bool
     """
     self.name = name
     mylogger = logging.getLogger(module_logger.name+".K_4ch")
-    mylogger.debug(" initializing %s", self)
+    mylogger.debug("__init__: initializing %s", self)
     self.logger = mylogger # needed for defining inputs
     if inputs == None:
       # This is for Receiver stand-alone testing
       inputs = {}
       for feed in feeds:
         inputs[feed] = Port(self, feed, signal=Beam(feed))
-    mylogger.debug(" %s input channels: %s", self, str(inputs))
-    mylogger.debug(" output names: %s", output_names)
+    self.logger.debug("__init__: %s input channels: %s", self, str(inputs))
+    self.logger.debug("__init__: output names: %s", output_names)
     # the next redefines self.logger
     FrontEnd.__init__(self, name, inputs=inputs, output_names=output_names)
     if hardware:
-      from support.pyro import get_device_server
-      self.hardware = get_device_server("FE_server-krx43", pyro_ns="crux")
-      timeout = 10
-      while timeout:
-        try:
-          self.set_ND_off()
-        except Pyro.errors.ProtocolError as err:
-          mylogger.info("__init__: %s (%f sec left)",
-                       err,timeout)
-          if str(err) == "connection failed":
-            timeout -= 0.5
-            time.sleep(0.5)
-        else:
-          # command succeeded
-          timeout = 0.
+      uri = Pyro5.api.URI("PYRO:Spec@localhost:50000")
+      self.hardware = Pyro5.api.Proxy(uri)
+      try:
+        self.hardware.__get_state__()
+      except Pyro5.errors.CommunicationError as details:
+        self.logger.error("__init__: %s", details)
+        raise Pyro5.errors.CommunicationError("is the SAO spec server running?")
+      except AttributeError:
+        # no __get_state__ because we have a connection
+        pass
     else:
+      # use the simulator
       self.hardware = hardware # that is, False
     # restore logger name
-    self.logger = mylogger
+    self.logger = self.logger
     self.channel = {}
     # These are receiver properties as well as signal properties
     self.data['frequency'] = 22.0 # GHz
     self.data['bandwidth'] = 10.  # GHz
-    keys = self.inputs.keys()
+    keys = list(self.inputs.keys())
     keys.sort()
     for feed in keys:
+      self.logger.debug("__init__: creating channel '%s'", feed)
       index = keys.index(feed)
       beam_signal = Beam(feed)
       for prop in self.data.keys():
@@ -140,9 +145,16 @@ class K_4ch(FrontEnd):
                                         output_names=output_names[index],
                                         signal=beam_signal)
       self.channel[feed].retract_load()
-      for key in self.channel[feed].outputs.keys():
-        pol = key[-2:]
-        self.channel[feed].outputs[key].signal['pol'] = plane[pol]
+      for key in list(self.channel[feed].outputs.keys()):
+        if key[-1].isnumeric():
+          # replace P1/P2 with E/H
+          pol = key[-2:]
+          self.channel[feed].outputs[key].signal['pol'] = plane[pol]
+        else:
+          pol = key[-1]
+          self.channel[feed].outputs[key].signal['pol'] = pol
+        self.logger.debug("__init__: setting '%s' pol to '%s'", key, pol)
+      self.logger.debug("__init__: finished channel '%s'", feed)
     self.logger.debug("%s output channels: %s\n", self, str(self.outputs))
     self.set_ND_off()
     self.update()
@@ -222,7 +234,7 @@ class K_4ch(FrontEnd):
     if spacing == 1 or spacing == 4:
       self.PCG_rail = spacing
     else:
-      raise ObservatoryError(spacing,"is not a valid PCG tone interval")
+      raise MonitorControlError(spacing,"is not a valid PCG tone interval")
     return "hardware not available"
 
   @auto_test(returns=list)
@@ -265,15 +277,15 @@ class K_4ch(FrontEnd):
                  signal=None, active=True):
       """
       """
-      mylogger = logging.getLogger(parent.logger.name+".Channel")
+      self.logger = logging.getLogger(parent.logger.name+".Channel")
       self.name = name
       self.number = int(name[-1])-1
       self.parent = parent
       self.hardware = self.parent.hardware
-      mylogger.debug(" initializing for %s", self)
+      self.logger.debug(" initializing for %s", self)
       FrontEnd.Channel.__init__(self, parent, name, inputs=inputs,
                                   output_names=output_names, active=active)
-      self.logger = mylogger
+      self.logger = self.logger
       self.logger.debug(" %s inputs: %s", self, str(inputs))
       self.PM = {}
       for pol in pols:
