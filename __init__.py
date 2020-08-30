@@ -62,7 +62,9 @@ class K_4ch(FrontEnd):
   The 4-channel downconverter with four inputs for two pols and two feeds.
 
   The class variable lists 'feeds' and 'pols' will define output port labels::
+  
     F1P1, F1P2, F2P1, F2P2.
+    
   The polarization type is definitely linear but the orientations are not
   yet known.
 
