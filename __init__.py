@@ -121,7 +121,7 @@ class K_4ch(FrontEnd):
         self.hardware.__get_state__()
       except Pyro5.errors.CommunicationError as details:
         self.logger.error("__init__: %s", details)
-        raise Pyro5.errors.CommunicationError("is the SAO spec server running?")
+        raise Pyro5.errors.CommunicationError("is the front end server running?")
       except AttributeError:
         # no __get_state__ because we have a connection
         pass
