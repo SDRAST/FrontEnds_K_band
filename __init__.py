@@ -1,5 +1,5 @@
 """
-K_4ch - module for K_4ch front end class
+K_4ch - client module for K_4ch front end class
 
 This provides a superclass with code common to both WBDC versions
 
@@ -115,7 +115,7 @@ class K_4ch(FrontEnd):
     # the next redefines self.logger
     FrontEnd.__init__(self, name, inputs=inputs, output_names=output_names)
     if hardware:
-      uri = Pyro5.api.URI("PYRO:Spec@localhost:50000")
+      uri = Pyro5.api.URI("PYRO:FE@localhost:50000")
       self.hardware = Pyro5.api.Proxy(uri)
       try:
         self.hardware.__get_state__()
@@ -125,6 +125,7 @@ class K_4ch(FrontEnd):
       except AttributeError:
         # no __get_state__ because we have a connection
         pass
+      self.hardware._pyroClaimOwnership()
     else:
       # use the simulator
       self.hardware = hardware # that is, False
@@ -160,6 +161,16 @@ class K_4ch(FrontEnd):
     self.logger.debug("%s output channels: %s\n", self, str(self.outputs))
     self.set_ND_off()
     self.update()
+    
+  def future__getattr__(self, name):
+    """
+    This passes unknown method and attribute requests to the server
+    """
+    self.logger.debug("__getattr__: checking hardware for '%s'",
+                      name)
+    if self.hardware is not None:
+      self.hardware._pyroClaimOwnership()
+    return getattr(self.hardware, name)
 
   def update(self):
     """
@@ -172,8 +183,12 @@ class K_4ch(FrontEnd):
   def feed_states(self):
     """
     Report the waveguide load state
+    
+    The report is a two line string which has the channel (feed) names and
+    whether it is in sky or load.
     """
     if self.hardware:
+      self.hardware._pyroClaimOwnership()
       response = self.hardware.set_WBDC(12)
       self.logger.debug("feed_states: response from set_WBDC(12): {}".format(response))
       self.logger.debug("feed_states: channel names: {}".format(list(self.channel.keys())))
@@ -192,6 +207,7 @@ class K_4ch(FrontEnd):
   @auto_test(returns=str)
   def set_ND_on(self):
     if self.hardware:
+      self.hardware._pyroClaimOwnership()
       response = self.hardware.set_WBDC(23)
     else:
       response = "on"
@@ -201,6 +217,7 @@ class K_4ch(FrontEnd):
   @auto_test(returns=str)
   def set_ND_off(self):
     if self.hardware:
+      self.hardware._pyroClaimOwnership()
       response = self.hardware.set_WBDC(24)
     else:
       response = "off"
@@ -212,6 +229,7 @@ class K_4ch(FrontEnd):
     """
     """
     if self.hardware:
+      self.hardware._pyroClaimOwnership()
       self.ND = self.hardware.set_WBDC(22)
     return self.ND
 
@@ -242,13 +260,15 @@ class K_4ch(FrontEnd):
   @auto_test(returns=list)
   def read_PMs(self):
     if self.hardware:
-      return self.hardware.read_pms()
+      self.hardware._pyroClaimOwnership()
+      return self.hardware.read_PMs()
     else:
       return [(i+1, str(datetime.datetime.utcnow()), random.random()) for i in range(4)]
 
   @auto_test(returns=dict)
   def read_temps(self):
     if self.hardware:
+      self.hardware._pyroClaimOwnership()
       return self.hardware.read_temp()
     else:
       return {"load1": 300*random.random(),
@@ -303,17 +323,23 @@ class K_4ch(FrontEnd):
       self.retract_load()
 
     def insert_load(self):
+      # invoke option 14 or 16
       if self.hardware:
+        self.hardware._pyroClaimOwnership()
         self.hardware.set_WBDC(14+2*self.number)
       self.load_in = True
 
     def retract_load(self):
+      # invoke option 13 or 15
       if self.hardware:
+        self.hardware._pyroClaimOwnership()
         self.hardware.set_WBDC(13+2*self.number)
       self.load_in = False
 
     def set_preamp_on(self):
+      # invoke option 25 or 27
       if self.hardware:
+        self.hardware._pyroClaimOwnership()
         response = self.hardware.set_WBDC(25+2*self.number)
       else:
         response = "on"
@@ -321,7 +347,9 @@ class K_4ch(FrontEnd):
       return response
 
     def set_preamp_off(self):
+      #invoke option 26 or 28
       if self.hardware:
+        self.hardware._pyroClaimOwnership()
         response = self.hardware.set_WBDC(26+2*self.number)
       else:
         response = "off"
@@ -333,25 +361,33 @@ class K_4ch(FrontEnd):
       Client to power meter on remote server
 
       Each front end channel has two power meters, for P1 and P2 respectively
+      
+      Recall that in the client, channel refers to a feed, not pol.
       """
       def __init__(self, parent, pol):
         """
-        """
-        self.parent = parent
-        self.hardware = self.parent.hardware
+        """        
+        feed = parent
+        frontend = feed.parent
+        self.logger = logging.getLogger(feed.logger.name+".PowerMeter")
+        self.logger.debug("__init__: for feed {} of {}".format(
+                                                      feed.name, frontend.name))      
+        self.hardware = frontend.hardware
+        self.logger.debug("__init__: hardware is {}".format(self.hardware))
         if pol.upper() == "P1" or pol.upper() == "E" or pol == 1:
           self.pol = 0
-          self.name = "F"+str(self.parent.number+1)+"P1"
+          self.name = "F"+str(feed.number+1)+"P1"
         elif pol.upper() == "P2" or pol.upper() == "H" or pol == 2:
-          self.name = "F"+str(self.parent.number+1)+"P2"
+          self.name = "F"+str(feed.number+1)+"P2"
           self.pol = 1
         else:
           raise RuntimeError("invalid polarization code")
-        self.number = 1 + self.parent.number*2 + self.pol
+        self.number = 1 + feed.number*2 + self.pol
 
       def set_mode(self, mode):
         """
         """
+        self.hardware._pyroClaimOwnership()
         if mode.upper() == "W":
           response = self.hardware.set_WBDC(390+self.number)
         elif mode.lower() == "dbm":
