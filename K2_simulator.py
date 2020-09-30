@@ -101,14 +101,16 @@ import support
 from support.pyro.pyro5_server import Pyro5Server
 
 logger = logging.getLogger(__name__)
+
 T_CBG = 2.73 # K
-T_rx = {1: {"E": 19.65, "H": 19.75}, 2: {"E": 22.27, "H": 20.55}}
-T_rs = 2 # K, blockage, spillover, ohmic losses
-T_atm = 9 # K, median atmospheric brightness
+T_rx = {1: {"E": 19.65, "H": 19.75}, 2: {"E": 22.27, "H": 20.55}} # from paper
+T_rs = 2 # K, blockage, spillover, ohmic losses, from paper
+T_atm = 9 # K, median atmospheric brightness, from paper
 T_amb = 273.15 + 20 # inside feed cone
 
 def T_sky(feed, pol):
   return T_CBG + T_rx[feed][pol] + T_rs + T_atm
+  
 def T_load(feed, pol):
   return T_rx[feed][pol] + T_amb
 

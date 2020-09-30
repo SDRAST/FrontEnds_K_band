@@ -47,9 +47,9 @@ import Pyro5
 import time
 import random
 
-from MonitorControl import Port, Beam, ComplexSignal, MonitorControlError
-from MonitorControl.FrontEnds import FrontEnd
-from support.test import auto_test
+import MonitorControl as MC
+import MonitorControl.FrontEnds as FE
+import support.test
 
 module_logger = logging.getLogger(__name__)
 
@@ -57,7 +57,7 @@ feeds = ["F1", "F2"] # default names for the feeds
 pols =  ["P1", "P2"]
 plane = {"P1": "E", "P2": "H"}
 
-class K_4ch(FrontEnd):
+class K_4ch(FE.FrontEnd):
   """
   The 4-channel downconverter with four inputs for two pols and two feeds.
 
@@ -109,11 +109,11 @@ class K_4ch(FrontEnd):
       # This is for Receiver stand-alone testing
       inputs = {}
       for feed in feeds:
-        inputs[feed] = Port(self, feed, signal=Beam(feed))
+        inputs[feed] = MC.Port(self, feed, signal=MC.Beam(feed))
     self.logger.debug("__init__: %s input channels: %s", self, str(inputs))
     self.logger.debug("__init__: output names: %s", output_names)
     # the next redefines self.logger
-    FrontEnd.__init__(self, name, inputs=inputs, output_names=output_names)
+    FE.FrontEnd.__init__(self, name, inputs=inputs, output_names=output_names)
     if hardware:
       uri = Pyro5.api.URI("PYRO:FE@localhost:50000")
       self.hardware = Pyro5.api.Proxy(uri)
@@ -140,7 +140,7 @@ class K_4ch(FrontEnd):
     for feed in keys:
       self.logger.debug("__init__: creating channel '%s'", feed)
       index = keys.index(feed)
-      beam_signal = Beam(feed)
+      beam_signal = MC.Beam(feed)
       for prop in self.data.keys():
         beam_signal.data[prop] = self.data[prop]
       self.channel[feed] = self.Channel(self, feed,
@@ -179,7 +179,7 @@ class K_4ch(FrontEnd):
     self.feed_states()
     self.get_ND_state()
 
-  @auto_test(returns=(True, True))
+  @support.test.auto_test(returns=(True, True))
   def feed_states(self):
     """
     Report the waveguide load state
@@ -204,7 +204,7 @@ class K_4ch(FrontEnd):
     else:
       return True, True
 
-  @auto_test(returns=str)
+  @support.test.auto_test(returns=str)
   def set_ND_on(self):
     if self.hardware:
       self.hardware._pyroClaimOwnership()
@@ -214,7 +214,7 @@ class K_4ch(FrontEnd):
     self.ND = True
     return response
 
-  @auto_test(returns=str)
+  @support.test.auto_test(returns=str)
   def set_ND_off(self):
     if self.hardware:
       self.hardware._pyroClaimOwnership()
@@ -224,7 +224,7 @@ class K_4ch(FrontEnd):
     self.ND = False
     return response
 
-  @auto_test(returns=bool)
+  @support.test.auto_test(returns=bool)
   def get_ND_state(self):
     """
     """
@@ -233,31 +233,31 @@ class K_4ch(FrontEnd):
       self.ND = self.hardware.set_WBDC(22)
     return self.ND
 
-  @auto_test(returns=str, args=(None,))
+  @support.test.auto_test(returns=str, args=(None,))
   def set_ND_temp(self, value):
     """
     """
     return "hardware not yet available"
 
-  @auto_test(returns=str)
+  @support.test.auto_test(returns=str)
   def set_PCG_on(self):
     self.PCG = True
     return "hardware not yet available"
 
-  @auto_test(returns=str)
+  @support.test.auto_test(returns=str)
   def set_PCG_off(self):
     self.PCG = False
     return "hardware not yet available"
 
-  @auto_test(returns=str,args=(1,))
+  @support.test.auto_test(returns=str,args=(1,))
   def set_PCG_rail(self,spacing):
     if spacing == 1 or spacing == 4:
       self.PCG_rail = spacing
     else:
-      raise MonitorControlError(spacing,"is not a valid PCG tone interval")
+      raise MC.MonitorControlError(spacing,"is not a valid PCG tone interval")
     return "hardware not available"
 
-  @auto_test(returns=list)
+  @support.test.auto_test(returns=list)
   def read_PMs(self):
     if self.hardware:
       self.hardware._pyroClaimOwnership()
@@ -265,7 +265,7 @@ class K_4ch(FrontEnd):
     else:
       return [(i+1, str(datetime.datetime.utcnow()), random.random()) for i in range(4)]
 
-  @auto_test(returns=dict)
+  @support.test.auto_test(returns=dict)
   def read_temps(self):
     if self.hardware:
       self.hardware._pyroClaimOwnership()
@@ -276,13 +276,13 @@ class K_4ch(FrontEnd):
               "load2":300*random.random(),
               "70K":80*random.random()}
 
-  @auto_test(returns=float)
+  @support.test.auto_test(returns=float)
   def Tsys_vacuum(self, beam=1, pol="R", mode=None, elevation=90):
     """
     """
     return 36/math.sin(math.pi*elevation/180) # K
 
-  class Channel(FrontEnd.Channel):
+  class Channel(FE.FrontEnd.Channel):
     """
     Electronics associated with a feed
 
@@ -305,7 +305,7 @@ class K_4ch(FrontEnd):
       self.parent = parent
       self.hardware = self.parent.hardware
       self.logger.debug(" initializing for %s", self)
-      FrontEnd.Channel.__init__(self, parent, name, inputs=inputs,
+      FE.FrontEnd.Channel.__init__(self, parent, name, inputs=inputs,
                                   output_names=output_names, active=active)
       self.logger = self.logger
       self.logger.debug(" %s inputs: %s", self, str(inputs))
@@ -313,9 +313,9 @@ class K_4ch(FrontEnd):
       for pol in pols:
         index = pols.index(pol)
         ID = output_names[index]
-        self.outputs[ID] = Port(self, ID,
+        self.outputs[ID] = MC.Port(self, ID,
                                 source=inputs[name],
-                                signal=ComplexSignal(signal, name=pol,
+                                signal=MC.ComplexSignal(signal, name=pol,
                                 pol=pol))
         self.parent.outputs[ID] = self.outputs[ID]
         self.PM[pol] = K_4ch.Channel.PowerMeter(self, pol)
