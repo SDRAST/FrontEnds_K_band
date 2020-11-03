@@ -280,7 +280,17 @@ class K_FE(support.PropertiedClass):
         return scipy.polyval(coefs,ND)
   
   # K_FE methods for Pyro clients
-
+  def get_feed(self, feed):
+    """
+    Get the load position
+    Args:
+      feed (int): 1 or 2
+    Returns:
+      bool
+    """
+    self.logger.debug("get_feed: for feed %s", feed)
+    return self.feed[feed].load.get_state()
+    
   def set_feed(self, feed, state):
     """
     Set the feed to either 1 or 2.

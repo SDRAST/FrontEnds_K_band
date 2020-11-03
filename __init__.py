@@ -104,16 +104,16 @@ class K_4ch(FE.FrontEnd):
     self.name = name
     mylogger = logging.getLogger(module_logger.name+".K_4ch")
     mylogger.debug("__init__: initializing %s", self)
-    self.logger = mylogger # needed for defining inputs
     if inputs == None:
       # This is for Receiver stand-alone testing
       inputs = {}
       for feed in feeds:
         inputs[feed] = MC.Port(self, feed, signal=MC.Beam(feed))
-    self.logger.debug("__init__: %s input channels: %s", self, str(inputs))
-    self.logger.debug("__init__: output names: %s", output_names)
-    # the next redefines self.logger
+    mylogger.debug("__init__: %s input channels: %s", self, str(inputs))
+    mylogger.debug("__init__: output names: %s", output_names)
     FE.FrontEnd.__init__(self, name, inputs=inputs, output_names=output_names)
+    # the next redefines self.logger
+    self.logger = mylogger # needed for defining inputs
     if hardware:
       uri = Pyro5.api.URI("PYRO:FE@localhost:50000")
       self.hardware = Pyro5.api.Proxy(uri)
@@ -129,8 +129,9 @@ class K_4ch(FE.FrontEnd):
     else:
       # use the simulator
       self.hardware = hardware # that is, False
+    mylogger.debug("__init__: hardware is %s", self.hardware)
     # restore logger name
-    self.logger = self.logger
+    self.logger = mylogger
     self.channel = {}
     # These are receiver properties as well as signal properties
     self.data['frequency'] = 22.0 # GHz
@@ -187,6 +188,7 @@ class K_4ch(FE.FrontEnd):
     The report is a two line string which has the channel (feed) names and
     whether it is in sky or load.
     """
+    self.logger.debug("feed_states: called")
     if self.hardware:
       self.hardware._pyroClaimOwnership()
       response = self.hardware.set_WBDC(12)
@@ -195,11 +197,14 @@ class K_4ch(FE.FrontEnd):
       lines = response.split('\n')
       for line in lines[1:2]:
         parts = line.split()
+        self.logger.debug("feed_states: split line is %s", parts)
+        # this forms the feed key from the text
         name = "F"+parts[1]
-        if parts[3] == "sky":
+        if parts[5] == "sky":
           self.channel[name].load_in = False
         else:
           self.channel[name].load_in = True
+        self.logger.debug("feed_states: %s is %s", name, self.channel[name].load_in)
       return self.channel["F1"].load_in, self.channel["F2"].load_in
     else:
       return True, True
@@ -299,15 +304,15 @@ class K_4ch(FE.FrontEnd):
                  signal=None, active=True):
       """
       """
-      self.logger = logging.getLogger(parent.logger.name+".Channel")
+      mylogger = logging.getLogger(parent.logger.name+".Channel")
       self.name = name
       self.number = int(name[-1])-1
       self.parent = parent
       self.hardware = self.parent.hardware
-      self.logger.debug(" initializing for %s", self)
+      mylogger.debug(" initializing for %s", self)
       FE.FrontEnd.Channel.__init__(self, parent, name, inputs=inputs,
                                   output_names=output_names, active=active)
-      self.logger = self.logger
+      self.logger = mylogger
       self.logger.debug(" %s inputs: %s", self, str(inputs))
       self.PM = {}
       for pol in pols:
